@@ -25,7 +25,22 @@ circuitf(A,B,C,D,Out):- inv(C,C1),inv(D,D1),
 	and(B,D1,T1),and(C1,D1,T2),and(B,C1,T3),
 	or(A,T1,T2,T3,Out).
 circuitg(A,B,C,D,Out):- inv(B,B1),inv(C,C1),inv(D,D1),and(C,D1,T1),and(B1,C,T2),and(B,C1,T3),or(A,T1,T2,T3,Out).
+% new version which put the result in a list
+circuit(Ai,Bi,Ci,Di,[A,B,C,D,E,F,G]) :- 
+	circuita(Ai,Bi,Ci,Di,A),
+	circuitb(Ai,Bi,Ci,Di,B),
+	circuitc(Bi,Ci,Di,C),
+	circuitd(Ai,Bi,Ci,Di,D),
+	circuite(Bi,Ci,Di,E),
+	circuitf(Ai,Bi,Ci,Di,F),
+	circuitg(Ai,Bi,Ci,Di,G).
+/*Part 2 query for new version
+?-circuit(0,1,0,1,L)
+Output:
+L = [1, 0, 1, 1, 0, 1, 1]
+*/
 
+/* orginal version
 circuit(Ai,Bi,Ci,Di,A,B,C,D,E,F,G) :- 
 	circuita(Ai,Bi,Ci,Di,A),
 	circuitb(Ai,Bi,Ci,Di,B),
@@ -34,6 +49,7 @@ circuit(Ai,Bi,Ci,Di,A,B,C,D,E,F,G) :-
 	circuite(Bi,Ci,Di,E),
 	circuitf(Ai,Bi,Ci,Di,F),
 	circuitg(Ai,Bi,Ci,Di,G).
+*/
 /* part2 query:
 ?-circuit(0,1,0,1,A,B,C,D,E,F,G)
 output:
