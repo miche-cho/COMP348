@@ -33,23 +33,38 @@ L = [('Michelle' '|' soen490 '|' 'Capstone Software Engineering Design Project')
 /* Question 5b  Team Size  
 ?- length(['40112879','40072743', '26307647'],N)
 
-OUTPUI:
+OUTPUT:
 N = 3
 */
 
-unique_courses(Set):-findall(S,takes_course(_,_,S),L),list_to_set(L,Set).
+unique_courses(Set):-findall(C|S,takes_course(_,C,S),L),list_to_set(L,Set).
 
 /* Question 5c  Unique Courses   
 ?- unique_courses(Unique_courses)
 
 OUTPUT:
-Unique_courses = ['Principles of Programming Languages', 'Probability and Statistics for Computer Science', 'Software Process', 'Tech. Writing + Communication', 'Introduction-Microeconomics', 'Capstone Software Engineering Design Project', 'Information Systems Security', 'Advanced Program Design with C++']
+Unique_courses = [(comp348 '|' 'Principles of Programming Languages'),
+	(comp233 '|' 'Probability and Statistics for Computer Science'), 
+	(soen341 '|' 'Software Process'), 
+	(encs282 '|' 'Tech. Writing + Communication'), 
+	(econ201 '|' 'Introduction-Microeconomics'), 
+	(soen490 '|' 'Capstone Software Engineering Design Project'), 
+	(soen321 '|' 'Information Systems Security'), 
+	(comp345 '|' 'Advanced Program Design with C++')]
 */
 
-sort2_courses(X):-findall(S,takes_course(_,_,S),L),sort(L,X).
+sort2_courses(X):-findall( C|S,takes_course(_,C,S),L),sort(L,X).
 
 /* Question 5d  Sort/2 Courses     
 ?- sort2_courses(Sorted)
 
 OUTPUT: Sort Alphabetically and removes duplicates
-Sorted = ['Advanced Program Design with C++', 'Capstone Software Engineering Design Project', 'Information Systems Security', 'Introduction-Microeconomics', 'Principles of Programming Languages', 'Probability and Statistics for Computer Science', 'Software Process', 'Tech. Writing + Communication']*/
+Sorted = [(comp233 '|' 'Probability and Statistics for Computer Science'), 
+	(comp345 '|' 'Advanced Program Design with C++'), 
+	(comp348 '|' 'Principles of Programming Languages'), 
+	(econ201 '|' 'Introduction-Microeconomics'), 
+	(encs282 '|' 'Tech. Writing + Communication'), 
+	(soen321 '|' 'Information Systems Security'), 
+	(soen341 '|' 'Software Process'), 
+	(soen490 '|' 'Capstone Software Engineering Design Project')]
+*/
