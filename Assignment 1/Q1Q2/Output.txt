@@ -1,0 +1,43 @@
+"C:\Program Files\JetBrains\IntelliJ IDEA 2019.3.3\jbr\bin\java.exe" "-javaagent:C:\Program Files\JetBrains\IntelliJ IDEA 2019.3.3\lib\idea_rt.jar=51798:C:\Program Files\JetBrains\IntelliJ IDEA 2019.3.3\bin" -Dfile.encoding=UTF-8 -classpath D:\Users\Mia\IdeaProjects\COMP348\out\production\COMP348 com.company.Main
+
+Sort by Employee Last and First Name
+Employee{id='9721513', lName='Atwood', fName='Margaret', salary=130000.0}
+Employee{id='0498201', lName='Doe', fName='Jane', salary=67000.0}
+Employee{id='0054654', lName='Doe', fName='John', salary=65000.0}
+Employee{id='2105489', lName='Faulkner', fName='Elisa', salary=48000.0}
+Employee{id='7348925', lName='Haul', fName='Over', salary=100000.0}
+Employee{id='6727967', lName='Huang', fName='He', salary=55000.0}
+Employee{id='6709834', lName='Ikari', fName='Shinji', salary=20000.0}
+Employee{id='4566003', lName='Langley', fName='Laurie', salary=54000.0}
+Employee{id='3498458', lName='Rodriguez', fName='Giulia', salary=76000.0}
+Employee{id='4564656', lName='Seto', fName='Kaiba', salary=250000.0}
+Employee{id='8126456', lName='Smith', fName='Joey', salary=45000.0}
+Employee{id='6721912', lName='Snicket', fName='Lemony', salary=80000.0}
+Employee{id='1234789', lName='Sparrow', fName='Jack', salary=15000.0}
+Employee{id='9876512', lName='Wheeler', fName='Joey', salary=45000.0}
+Employee{id='7248929', lName='Wick', fName='John', salary=110000.0}
+
+Sort by Employee ID
+Employee{id='0054654', lName='Doe', fName='John', salary=65000.0}
+Employee{id='0498201', lName='Doe', fName='Jane', salary=67000.0}
+Employee{id='1234789', lName='Sparrow', fName='Jack', salary=15000.0}
+Employee{id='2105489', lName='Faulkner', fName='Elisa', salary=48000.0}
+Employee{id='3498458', lName='Rodriguez', fName='Giulia', salary=76000.0}
+Employee{id='4564656', lName='Seto', fName='Kaiba', salary=250000.0}
+Employee{id='4566003', lName='Langley', fName='Laurie', salary=54000.0}
+Employee{id='6709834', lName='Ikari', fName='Shinji', salary=20000.0}
+Employee{id='6721912', lName='Snicket', fName='Lemony', salary=80000.0}
+Employee{id='6727967', lName='Huang', fName='He', salary=55000.0}
+Employee{id='7248929', lName='Wick', fName='John', salary=110000.0}
+Employee{id='7348925', lName='Haul', fName='Over', salary=100000.0}
+Employee{id='8126456', lName='Smith', fName='Joey', salary=45000.0}
+Employee{id='9721513', lName='Atwood', fName='Margaret', salary=130000.0}
+Employee{id='9876512', lName='Wheeler', fName='Joey', salary=45000.0}
+
+Summary of Employee Salary info By Group 
+{BETWEEN_40000_70000=DoubleSummaryStatistics{count=7, sum=379000.000000, min=45000.000000, average=54142.857143, max=67000.000000}, ABOVE_70000=DoubleSummaryStatistics{count=6, sum=746000.000000, min=76000.000000, average=124333.333333, max=250000.000000}, BELOW_25000=DoubleSummaryStatistics{count=2, sum=35000.000000, min=15000.000000, average=17500.000000, max=20000.000000}}
+
+Total Count and Average Salary 
+DoubleSummaryStatistics{count=15, sum=1160000.000000, min=15000.000000, average=77333.333333, max=250000.000000}
+
+Process finished with exit code 0
