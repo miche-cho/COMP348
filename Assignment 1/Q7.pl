@@ -34,4 +34,11 @@ circuit(Ai,Bi,Ci,Di,A,B,C,D,E,F,G) :-
 	circuite(Bi,Ci,Di,E),
 	circuitf(Ai,Bi,Ci,Di,F),
 	circuitg(Ai,Bi,Ci,Di,G).
+/* part2 query:
+?-circuit(0,1,0,1,A,B,C,D,E,F,G)
+output:
+A = C, C = D, D = F, F = G, G = 1,
+B = E, E = 0
+
+which means: 1011011 */
 
