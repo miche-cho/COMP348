@@ -1,0 +1,446 @@
+﻿Q3
+
+
+1. food(bread, X) = Food(Y, soup)
+This unification is impossible because the two complex terms are not the same. food/2 and Food/2 are not equivalent complex terms.
+
+
+2. This unification is possible.
+Bread = soup
+
+
+3. This unification is possible. 
+Bread = Soup
+
+
+4. food(bread, X, milk) = food(Y, salad, X)
+This unification is impossible because the unification process of the two complex terms, food(bread, X, milk) and food(Y, salad, X), causes X to have two values: salad and milk.
+
+
+5. This unification is possible.
+Y= manager(X)
+
+
+6. This unification is possible. This is unifying two complex terms with the same arity.
+X = meal(healthyFood(bread))
+Y= meal(drink(milk))
+
+
+7. meal(eat(Z), drink(milk)) = [X]
+ This unification is impossible. This is unifying a list with a complex term not inside one.
+
+
+8.This unification is possible.
+X = eat(Z)
+Y = drink(milk)
+Z = []
+
+
+9. This unification is possible. The functors on both sides have the same name and arity. The atom “c” is the same on both sides.
+X = i
+Z = b
+
+
+10. This unification is possible. The functors on both sides have the same name and arity.
+A = french(jean)
+B = scottish(joe)
+
+
+11. This unification is possible. The functors on both sides have the same name and arity.
+X = healthyFood(bread)
+Y = drink(water)
+12. This unification is possible.
+H = a
+T = [b,c]
+
+
+13. [H, T] = [a, b, c]
+This unification is impossible. The length of the right hand side list is not the same as the left hand side’s length.
+
+
+14. breakfast(healthyFood(bread), egg, milk) = breakfast(healthyFood(Y), Y, Z)
+This unification is impossible. The variable “Y” is instantiated to two different atoms, “bread” and ”egg”.
+
+
+15. This unification is possible. The functors on both sides have the same name and arity.
+X = jack
+Y = cook(egg,oil)
+Time = Evening
+
+
+16. This unification is possible. The functors on both sides have the same name and arity. 
+X = s(g)
+Y = t(k)
+
+
+17. equation(Z, f(x, 17, M), L*M, 17) = equation(C, f(D, D, y), C, E)
+This unification is impossible. The variables “C” and “D” are instantiated twice.
+
+
+18. a(X, b(c, d), [H|T]) = a(X, b(c, X), b
+This unification is impossible. The atom “b” cannot be instantiated to a list. 
+
+
+________________
+
+
+Q4
+
+
+1. Grounded Query
+field(X, Y) :- course(X, Z), field(Z, Y).
+X = hit_transfer
+Y = engineering
+
+
+course(X, Z).
+X = hit_transfer
+Z = mechanical
+exit
+
+
+field(Z, Y).
+Z = mechanical
+Y = engineering
+exit
+
+
+field(X, Y) :- course(X, Z), field(Z, Y).
+X = hit_transfer
+Y = engineering
+Z = mechanical
+True
+
+
+2. Non-Grounded Query
+lab_number(fine_arts, X).
+X = 10.
+
+
+3. Grounded Query
+field(computer, literature). Does not exist in the database.
+false
+
+
+4. Non-Grounded Query
+course(X, Y).
+X = hit_transfer,
+Y = mechanical;
+
+
+X = web_design,
+Y = computer;
+
+
+X = design_methods,
+Y = fine_arts;
+
+
+
+
+X = poetry,
+Y = literature;
+
+
+X = leadership,
+Y = management;
+
+
+X = biology,
+Y = medicin.
+
+
+5. Grounded Query
+student(X) :- student(X, _).
+X = adrian
+
+
+student(adrian, web_design).
+True
+
+
+6. Grounded Query
+student(X, Y) :- field(Z, Y), student(X, Z).
+X = anna
+Y = engineering
+
+
+field(X, Y) :- course(X, Z) , field(Z, Y).
+Y = engineering
+
+
+course(X, Y).
+X = hit_transfer;
+Y = mechanical.
+exit
+
+
+field(Z, engineering).
+Z = mechanical
+true
+exit
+
+
+field(X, Y) :- course(X, Z) , field(Z, Y).
+X = hit_transfer
+Y = engineering
+Z = mechanical
+exit
+
+
+student(X,Y) :- field(Z,Y), student(X, Z).
+X = anna
+Y = engineering
+Z = hit_transfer
+
+
+
+
+student(anna, hit_transfer)
+True
+
+
+7. Non-grounded Query
+student(X, Y) :- field(Z, Y), student(X, Z).
+Y = engineering
+
+
+field(X, Y) :- course(X, Z) , field(Z, Y).
+Y = engineering
+
+
+field(Z, engineering).
+Z = mechanical;
+Z = computer;
+exit
+
+
+course(X, Z).
+Z = mechanical,
+X = hit_transfer;
+Z = computer,
+X = web_design;
+exit
+
+
+field(X, Y) :- course(X, Z) , field(Z, Y).
+X = hit_transfer,
+Y = engineering,
+Z = mechanical;
+Z = computer,
+X = web_design.
+exit
+
+
+student(X, Y) :- field(Z, Y), student(X, Z).
+Y = engineering,
+Z = hit_transfer;
+Z = web_design.
+
+
+student(X, Z).
+Z = hit_transfer,
+X = anna;
+X = daniel;
+Z = web_design,
+X = adrian
+exit
+
+
+student(X,Y) :- field(Z, Y), student(X, Z).
+Y = engineering,
+Z = hit_transfer,
+X = anna;
+X = daniel;
+Z = web_design,
+X = adrian
+
+
+X = anna;
+X = daniel;
+X = adrian.
+
+
+8. Non-grounded Query
+student(X,Y) :- field(Z, Y), student(X,Z).
+Y = fine-arts.
+
+
+field(Z,Y).
+Y = fine-arts.
+fail, cannot find any corresponding term in the database.
+exit
+
+
+student(X,Y) :- field(Z, Y), student(X,Z).
+Y = fine-arts.
+fail
+False.
+
+
+9. Non-Grounded Query
+field(_,X).
+From database:
+X = engineering;
+X = engineering;
+X = art;
+X = business.
+
+
+10. Non-Grounded Query
+lab_number(_, X).
+X = 10;
+X = 15.
+exit
+
+
+field(X,Y)
+X = 10
+There are no terms in the database that corresponds to X = 10. Neither is the case for X = 15.
+
+
+fail.
+false.
+
+
+11. Non-Grounded Query
+lab_number(X, 15).
+X = mechanical.
+
+
+field(X,Y).
+X = mechanical,
+Y = engineering.
+
+
+12. Non-Grounded Query
+student(X) :- student(X,_).
+X = anna;
+! indicates a cut, thus the query stops
+student(X,_).
+X = anna;
+X = anna.
+
+
+13. Non-grounded Query
+student(X) :- student(X,_).
+X = anna;
+
+
+student(X, _)
+X = anna;
+
+
+! indicates a cut, thus the query stops.
+X = anna.
+
+
+14. Non-grounded Query
+course(X,_).
+X = hit_transfer.
+
+
+student(_,X).
+X = hit_transfer
+There are anna and daniel that fulfill the requirement of this query.Thus, this returns true
+With the NOT, it becomes false
+fail
+
+
+
+
+course(X,_).
+X = web_design.
+
+
+student(_,X).
+X = web_design.
+There is adrian that fulfills the requirement of this query. Thus, this returns true
+With the NOT, it becomes false
+fail
+
+
+course(X,_).
+X = design_methods.
+
+
+student(_,X).
+X = design_methods.
+There is ava that fulfills the requirement of this query. Thus, this returns true
+With the NOT, it becomes false
+fail
+
+
+course(X,_).
+X = poetry.
+
+
+student(_,X).
+X = poetry.
+There is jack that fulfills the requirement of this query. Thus, this returns true
+With the NOT, it becomes false
+fail
+
+
+course(X,_).
+X = leadership.
+
+
+student(_,X).
+X = leadership.
+There is lee that fulfills the requirement of this query. Thus, this returns true
+With the NOT, it becomes false
+fail
+
+
+course(X,_).
+X = biology.
+
+
+student(_,X).
+X = biology.
+There are no terms that fulfill the requirement of this query. Thus, this returns false
+With the NOT, it becomes true
+X = biology
+Program
+course(hit_transfer,mechanical).
+course(web_design,computer).
+course(design_methods,fine-arts).
+course(poetry,literature).
+course(leadership,management).
+course(biology,medicin).
+lab_number(mechanical,15).
+lab_number(fine_arts,10).
+lab_number(X,Z):-course(X,Y), lab_number(Y,Z).
+field(mechanical,engineering).
+field(computer,engineering).
+field(fine-arts,art).
+field(literature,social).
+field(management,buisiness).
+field(X,Y):-course(X,Z),field(Z,Y).
+student(anna,hit_transfer).
+student(daniel,hit_transfer).
+student(adrian,web_design).
+student(ava,design_methods).
+student(jack,poetry).
+student(lee,leadership).
+student(X,Y):-field(Z,Y),student(X,Z).
+student(X):-student(X,_).
+	
+
+Queries:  
+
+
+?- 
+field(hit_transfer,engineering);
+lab_number(fine_arts,X);
+field(computer,literature);
+course(X,Y);
+student(adrian); student(anna,engineering);
+student(X,engineering);
+student(X,fine-arts),course(fine_arts,Y); 
+field(_,Z);lab_number(_,X),field(X,Y);
+lab_number(X,15),field(X,Y);
+student(X),!,student(X,_);% note to cut here
+student(X),student(X,_),!;
+course(X,_), \+ student(_,X) % \+ is for negation (not)
