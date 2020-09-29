@@ -68,3 +68,17 @@ Sorted = [(comp233 '|' 'Probability and Statistics for Computer Science'),
 	(soen341 '|' 'Software Process'), 
 	(soen490 '|' 'Capstone Software Engineering Design Project')]
 */
+
+/* Question 5e  Sort/2 Courses unified in expression [A,B|C]     
+?- sort2_courses([A,B|C])
+
+OUTPUT: 
+A = (comp233 '|' 'Probability and Statistics for Computer Science'),
+B = (comp345 '|' 'Advanced Program Design with C++'),
+C = [(comp348 '|' 'Principles of Programming Languages'), 
+	(econ201 '|' 'Introduction-Microeconomics'), 
+	(encs282 '|' 'Tech. Writing + Communication'), 
+	(soen321 '|' 'Information Systems Security'), 
+	(soen341 '|' 'Software Process'), 
+	(soen490 '|' 'Capstone Software Engineering Design Project')]
+*/
