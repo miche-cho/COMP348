@@ -1,0 +1,20 @@
+(defun print-stars(num)
+	(dotimes(i num)
+	(princ "*")))
+
+(defun print-space(num)
+	(dotimes(i num)
+	(princ " ")))
+
+(defun triangle (num)
+	(cond 
+		((and (numberp num)(> num 0))
+			(dotimes (i num)
+				(print-stars (- num i))
+				(write-line "")))
+		((and (numberp num)(< num 0))
+			(dotimes (i (- num))
+				(print-space i)
+				(print-stars (- (- num) i))
+				(write-line "")))
+			(t (print "invalid number; please enter a positive or a negative integer"))))
