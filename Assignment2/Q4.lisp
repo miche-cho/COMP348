@@ -5,13 +5,13 @@
 		(let (	(lr (n-search-tree (car (cdr lst))))
 				(rr (n-search-tree(car(cdr(cdr lst)))))
 				(h (car lst)))
-			(cond ((or (eql lr t) (eql rr t)) t)
+			(cond ((or (equal lr t) (equal rr t)) t)
 				((and (not (null lr)) (> lr h)) t)
 				((and (not (null rr)) (< rr h)) t)
 				(t h)
 			))))
 (defun is-search-tree(lst)
-	(if (eql (n-search-tree lst)t)
+	(if (equal (n-search-tree lst)t)
 		nil
 		t))
 		
