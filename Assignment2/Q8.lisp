@@ -8,6 +8,6 @@
 
 
 (defun lucas(n)
-	(cond ((eql n 0) '(2))
+	(cond ((equal n 0) '(2))
 		((> n 0) (reverse (process-sequence '(1 2) n))) 
 		(t "invalid input")))
