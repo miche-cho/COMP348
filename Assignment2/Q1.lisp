@@ -1,23 +1,27 @@
-; get the nth element (this is unused atm)
-(defun get-nth-el (lst n)
+; get the nth element helper function
+(defun get-nth (lst n)
     (cond 
         ((or (null lst) (< n 1)) nil)
-        ((equal n 1) (car lst))
-        (t  (get-n (cdr lst)(- n 1)))))
-
-
+        ((equal n 1) (car lst)) ; base case, if n is 1 return head of list
+        (t  (get-nth (cdr lst)(- n 1))))) ; recursion, if n isn't 1 return rest of list
 
 
 (defun sub-list (lst a b)
-    (setf diff (- b a))   ; different btw to and from 
     (cond 
-        ((or(null lst)(null a)(null b)) nil)) ; if not list, and a and b are all empty return nil
+        ((or(null lst)(null a)(null b)) nil) ; if not list, and a and b are all empty return nil
+        ((< (list-length lst) b) nil) ; return nil if b is bigger than list length
         ((< b a) nil) ; return nil if a is bigger than b 
-        ((< 1 a) (sub-list (cdr lst) (- a 1) b))  ; start a index a starting from 1 
-        ((< 0 diff) (cons (car lst) (sub-list (cdr lst) a  (- diff 1) ))) ; add numbers from difference onwards
+        ((equal a b) (cons (get-nth lst b) '())) ; base case, return element for b
+        ((< a b) (cons (get-nth lst a) (sub-list lst (+ 1 a) b)))  ; if a is smaller than b, add up indexes and increment a 
         )
     )
 
 
-; testing
-(print(sub-list '(1 3 5 2 3) 2 2))
+; testing cases and their results
+(print(sub-list '(1 3 5 2 3) 2 4)) ; (3 5 2) second index to 4th
+(print(sub-list '(1 3 5 2 3) 1 4)) ; (1 3 5 2) first to 4th
+(print(sub-list '(1 3 5 2 3) 2 5)) ; (3 5 2 3) second to  5th
+(print(sub-list '(1 3 5 2 3) 3 3)) ; (5) 3rd index
+(print(sub-list '(1 3 5 2 3) 2 7)) ; NIL out of bounds
+(print(sub-list '(1 3 5 2 3) 4 2)) ; NIL start is greater than final
+
