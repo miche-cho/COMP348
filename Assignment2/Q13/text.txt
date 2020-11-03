@@ -1,0 +1,8 @@
+This is a sample text.
+The file will be terminated by a single dot: .
+The program continues processing the lines because the dot (.)
+did not appear at the beginning.
+. even though this line starts with a dot, it is not a single dot.
+The program stops processing lines right here.
+.
+You won't be able to feed any more lines to the program.
