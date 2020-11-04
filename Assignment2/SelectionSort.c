@@ -1,5 +1,6 @@
 //Author: Amine Halimi 40112879
 //Version 1.1
+//Question 9 and 10
 #include <stdio.h>
 #include "selectionSort.h"
 //This is q9
