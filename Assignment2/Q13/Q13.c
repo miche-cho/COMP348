@@ -11,7 +11,8 @@ struct Node_t {
 // delimiters and end of reading
 const char del[2] = " ";
 const char end[2] = ".";
-const char eof[2] = ""; //   (control-Z )or  (control-D)
+const char eof[2] = ""; //   (control-Z )or  (control-D) (windows)
+// on linux change to "\0" and send control-D from stdin
 
 /* receives a word of type char* and inserts into the right position*/
 void insert_dictionary_order(struct Node_t** reference, char* new_word) {
@@ -90,7 +91,7 @@ int main() {
       tok = strtok(NULL, del);
     }
     // add new line for the next node
-    insert_dictionary_order(&root, "\n");
+  //  insert_dictionary_order(&root, "\n");
   }
    // prints all nodes if EOF or . 
   print_list(root);
