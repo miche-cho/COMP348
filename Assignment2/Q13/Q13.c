@@ -91,7 +91,7 @@ int main() {
       tok = strtok(NULL, del);
     }
     // add new line for the next node
-  //  insert_dictionary_order(&root, "\n");
+    insert_dictionary_order(&root, "\n");
   }
    // prints all nodes if EOF or . 
   print_list(root);
