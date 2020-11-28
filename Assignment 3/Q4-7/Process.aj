@@ -44,7 +44,6 @@ public privileged aspect Process {
 			return 0;
 		else return proceed(r);
 	}
-	
 	//Q8 getId method starts here
 	private static int counter = 1;
 	int Shape.id;
@@ -55,6 +54,7 @@ public privileged aspect Process {
 	public int Circle.getId() {
 		return this.id;
 	}
+	//Pointcut for the creation of Rectangle and Circle objects
 	pointcut shapeId(Shape s): (execution(Rectangle.new(double, double)) 
             				||  execution(Circle.new(double))) && this(s);
 	after(Shape s): shapeId(s){
