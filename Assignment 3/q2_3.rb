@@ -62,6 +62,9 @@ class Ellipse < Shape
     attr_accessor :a, :b
     def initialize(maj =0, min=0)
         #This is to verify that the greater value is put in the major variable
+        if (maj < 0 || min < 0)
+            raise ArgumentError, 'Invalid Ellipse'
+        end
         if (maj > min)
             @a = maj
             @b = min
@@ -71,15 +74,26 @@ class Ellipse < Shape
         end
         
     end
+    
     #perimeter stays undefined
 
     def area
+        if (@a < 0 || @b < 0)
+            raise ArgumentError, 'Invalid Ellipse'
+            return 0
+        else
         return @a * @b * Math::PI
+        end
     end
+    
 
     def eccentricity
-        root = Math.sqrt(@a * @a - @b * @b)
-        return root
+        if (@a < 0 || @b < 0)
+            raise ArgumentError, 'Invalid Ellipse'
+        else
+            root = Math.sqrt(@a * @a - @b * @b)
+            return root
+        end
     end
 end
 
@@ -91,6 +105,7 @@ end
 @numEllipses = 0
 
 #Q2 read eachline from input.txt
+puts"\n"
 File.readlines('input.txt').each do |line|
     # for each line, split into array using space as delimiter
     element = line.split
@@ -129,7 +144,11 @@ File.readlines('input.txt').each do |line|
         end
     end
     # at the end print all the shape instances neatly
+
     shape.print
+rescue ArgumentError => msg  
+    # display the system generated error message  
+    puts msg
 end
 
 # Q3 Statistics, keep count of the times instances were called in associative array
@@ -146,5 +165,3 @@ puts "Statistics:"
 stats.each_pair do |key, value|
     puts "   #{key}(s) : #{value}"
 end
-
-
