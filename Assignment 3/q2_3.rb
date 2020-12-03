@@ -1,6 +1,6 @@
 =begin
-Amine Halimi 40112879
-This is the code for class Shape and its subclasses Circle, Rectangle and Ellipse.
+Michelle Choi 26307647, modified Q1 for Q2 and Q3
+READ file input and raising errors
 =end
 
 #This is the class Shape
@@ -61,10 +61,6 @@ end
 class Ellipse < Shape
     attr_accessor :a, :b
     def initialize(maj =0, min=0)
-        # raise exception if either maj or min are not positive (Q2)
-        if (maj < 0 || min < 0)
-            raise ArgumentError, 'Invalid Ellipse'
-        end
         #This is to verify that the greater value is put in the major variable
         if (maj > min)
             @a = maj
@@ -73,7 +69,10 @@ class Ellipse < Shape
             @a = min
             @b = maj
         end
-        
+        # raise exception if either a or b are not positive (Q2)
+        if (@a < 0 || @b < 0)
+            raise ArgumentError, 'Invalid Ellipse'
+        end
     end
     
     #perimeter stays undefined
@@ -98,7 +97,6 @@ class Ellipse < Shape
         end
     end
 end
-
 
 #instantiate counters for Q3
 @numShapes = 0
@@ -153,7 +151,7 @@ File.readlines('input.txt').each do |line|
 
     # if argument raised, rescue the exception and output the message (Q2)
     rescue ArgumentError => msg  
-    # display the system generated error message  
+        # display the system generated error message  
         puts msg
 end
 
