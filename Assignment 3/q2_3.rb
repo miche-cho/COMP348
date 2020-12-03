@@ -108,7 +108,7 @@ File.readlines('input.txt').each do |line|
         
         # rectange returns perimeter, area and count
         when "rectangle"
-        shape.instance_variable_set(:@heigh, element[1].to_f)
+        shape.instance_variable_set(:@height, element[1].to_f)
         shape.instance_variable_set(:@width, element[2].to_f)
         @numShapes+=1
         @numRectangles+=1
@@ -140,7 +140,7 @@ stats = {
 "Ellipse" => @numEllipses
 }
 
-# print out statistics as string values 
+# print out statistics as string 
 puts "\n"
 puts "Statistics:"
 stats.each_pair do |key, value|
