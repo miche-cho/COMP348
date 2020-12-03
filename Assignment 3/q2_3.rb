@@ -61,10 +61,11 @@ end
 class Ellipse < Shape
     attr_accessor :a, :b
     def initialize(maj =0, min=0)
-        #This is to verify that the greater value is put in the major variable
+        # raise exception if either maj or min are not positive (Q2)
         if (maj < 0 || min < 0)
             raise ArgumentError, 'Invalid Ellipse'
         end
+        #This is to verify that the greater value is put in the major variable
         if (maj > min)
             @a = maj
             @b = min
@@ -78,6 +79,7 @@ class Ellipse < Shape
     #perimeter stays undefined
 
     def area
+        # raise exception if either a or b are not positive (Q2)
         if (@a < 0 || @b < 0)
             raise ArgumentError, 'Invalid Ellipse'
             return 0
@@ -86,8 +88,8 @@ class Ellipse < Shape
         end
     end
     
-
     def eccentricity
+        # raise exception if either a or b are not positive (Q2)
         if (@a < 0 || @b < 0)
             raise ArgumentError, 'Invalid Ellipse'
         else
@@ -128,7 +130,7 @@ File.readlines('input.txt').each do |line|
         @numShapes+=1
         @numRectangles+=1
         
-        # circle returns perimeter, area nad count
+        # circle returns perimeter, area and count
         when "circle"
         shape.instance_variable_set(:@radius, element[1].to_f)
         @numShapes+=1
@@ -137,18 +139,22 @@ File.readlines('input.txt').each do |line|
         # ellipse has condition for checking whether invalid,
         # has undefined perimeter, area and count
         when "ellipse"
-        shape.instance_variable_set(:@a, element[1].to_f)
-        shape.instance_variable_set(:@b, element[2].to_f)
+        a = shape.instance_variable_set(:@a, element[1].to_f)
+        b = shape.instance_variable_set(:@b, element[2].to_f)
         @numShapes+=1
-        @numEllipses+=1
+            # checks if both a an b are not null (otherwise it's invalid and not counted) (Q3)
+            if (a > 0  && b > 0)
+                @numEllipses+=1
+            end
         end
     end
     # at the end print all the shape instances neatly
-
     shape.print
-rescue ArgumentError => msg  
+
+    # if argument raised, rescue the exception and output the message (Q2)
+    rescue ArgumentError => msg  
     # display the system generated error message  
-    puts msg
+        puts msg
 end
 
 # Q3 Statistics, keep count of the times instances were called in associative array
@@ -163,5 +169,5 @@ stats = {
 puts "\n"
 puts "Statistics:"
 stats.each_pair do |key, value|
-    puts "   #{key}(s) : #{value}"
+    puts "   #{key}(s): #{value}"
 end
