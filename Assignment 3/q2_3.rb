@@ -108,7 +108,7 @@ class Ellipse < Shape
         if (@a < 0 || @b < 0)
             raise ArgumentError, 'Invalid Ellipse'
         else
-            root = Math.sqrt(@a * @a - @b * @b)
+            root = Math.sqrt(@a * @a - @b * @b) /@a
             return root
         end
     end
