@@ -78,7 +78,7 @@ class Ellipse < Shape
     end
 
     def eccentricity
-        root = Math.sqrt(@a * @a - @b * @b)
+        root = Math.sqrt(@a * @a - @b * @b) /@a
         return root
     end
 end
