@@ -59,4 +59,5 @@ public privileged aspect Process {
             				||  execution(Circle.new(double))) && this(s);
 	after(Shape s): shapeId(s){
 	s.id = counter++;
-}
+	}
+)
