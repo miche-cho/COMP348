@@ -60,4 +60,4 @@ public privileged aspect Process {
 	after(Shape s): shapeId(s){
 	s.id = counter++;
 	}
-)
+}
