@@ -28,7 +28,7 @@ end
 #This is the class Circle
 class Circle < Shape
     attr_accessor :radius
-    def initialize(rad)
+    def initialize(rad =0)
         @radius = rad
     end
 
@@ -43,7 +43,7 @@ end
 #This is the class Rectangle
 class Rectangle < Shape
     attr_accessor :height, :width
-    def initialize(hei, wid)
+    def initialize(hei =0, wid =0)
         @height = hei
         @width = wid
     end
@@ -60,7 +60,7 @@ end
 #This is the class Ellipse
 class Ellipse < Shape
     attr_accessor :a, :b
-    def initialize(maj, min)
+    def initialize(maj =0, min =0)
         #This is to verify that the greater value is put in the major variable
         if (maj > min)
             @a = maj
