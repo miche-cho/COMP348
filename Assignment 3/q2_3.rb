@@ -142,28 +142,28 @@ File.readlines('input.txt').each do |line|
             h = shape.instance_variable_set(:@height, element[1].to_f)
             w = shape.instance_variable_set(:@width, element[2].to_f)
             # checks if both height an width are not negative (otherwise it's invalid and not counted) (Q3)
-            if (h >= 0 && w >= 0)
+            #if (h >= 0 && w >= 0)
                 @numShapes+=1
                 @numRectangles+=1
-            end
+            #end
         # circle returns perimeter, area and count
         when "circle"
             r = shape.instance_variable_set(:@radius, element[1].to_f)
             # checks if radius not negative (otherwise it's invalid and not counted) (Q3)
-            if (r >= 0)
+            #if (r >= 0)
                 @numShapes+=1
                 @numCircles+=1
-            end
+            #end
         # ellipse has condition for checking whether invalid,
         # has undefined perimeter, area and count
         when "ellipse"
             a = shape.instance_variable_set(:@a, element[1].to_f)
             b = shape.instance_variable_set(:@b, element[2].to_f)
             # checks if both a an b are not negative (otherwise it's invalid and not counted) (Q3)
-            if (a >= 0  && b >= 0)
+            #if (a >= 0  && b >= 0)
                 @numShapes+=1
                 @numEllipses+=1
-            end
+            #end
         end
     end
     # at the end print all the shape instances neatly
